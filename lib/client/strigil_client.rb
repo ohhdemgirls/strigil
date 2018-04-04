@@ -8,18 +8,22 @@ class StrigilClient
 
   def pull_comments
     raw_comments = client.find_elements(class: "comment")
-    comments = CommentsParser.parse(raw_comments)
-    click_next_page
-    comments
+    Strigil::CommentsParser.parse(raw_comments)
   end
 
   def close
-    client.close 
+    client.close
   end
 
-  private
-
-  def click_next_page
-    client.find_element(link_text: "next ›").click
+  def iterate
+    begin
+      client.find_element(link_text: "next ›").click
+    rescue
+      raise EndOfQueueError
+    end
   end
+
+end
+
+class EndOfQueueError < StandardError
 end

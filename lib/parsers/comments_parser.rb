@@ -2,7 +2,7 @@ class CommentsParser
 
   def self.parse(comments)
     comments.map do |comment|
-      Comment.new(
+      Strigil::Comment.new(
         author: comment.attribute("data-author"),
         subreddit: comment.attribute("data-subreddit"),
         permalink: get_permalink(comment),
