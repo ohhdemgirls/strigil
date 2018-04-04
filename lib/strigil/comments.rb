@@ -20,13 +20,23 @@ class Strigil::Comments
       FileUtils.mkdir('./data/')
     end
     File.open("./data/comments.json", 'w') do |f|
-      log.each do |comment|
-        f.write(comment.to_json)
-      end
+      f.write(log_to_json)
     end
   end
 
   def clear
     @log = []
+  end
+
+  private
+
+  def log_to_json
+    result = '['
+    log.each do |comment|
+      result << comment.to_json
+      result << ',' unless comment == log.last
+    end
+    result << ']'
+    result 
   end
 end
