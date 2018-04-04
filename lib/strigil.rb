@@ -1,10 +1,3 @@
-require 'selenium-webdriver'
-require 'webdrivers'
-require 'client/strigil_client'
-require 'parsers/comments_parser'
-require 'items/comment'
-require 'items/comments'
-
 class Strigil
   def self.engage(user)
     client = Strigil::StrigilClient.new(user)
@@ -30,3 +23,8 @@ class Strigil
     end
   end
 end
+
+require 'strigil/comment'
+require 'strigil/comments'
+require 'strigil/comments_parser'
+require 'strigil/strigil_client'

@@ -1,6 +1,6 @@
 require 'fileutils'
 
-class Comments
+class Strigil::Comments
   attr_accessor :log
 
   def initialize

@@ -1,6 +1,6 @@
 require 'time'
 
-class Comment
+class Strigil::Comment
   attr_reader :author, :subreddit, :permalink, :timestamp, :text
 
   def initialize(params={})

@@ -1,4 +1,4 @@
-class CommentsParser
+class Strigil::CommentsParser
 
   def self.parse(comments)
     comments.map do |comment|

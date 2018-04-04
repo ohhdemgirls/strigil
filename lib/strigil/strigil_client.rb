@@ -1,4 +1,7 @@
-class StrigilClient
+require 'selenium-webdriver'
+require 'webdrivers'
+
+class Strigil::StrigilClient
   attr_reader :client
 
   def initialize(user)
